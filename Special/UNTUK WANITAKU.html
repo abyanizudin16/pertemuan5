@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Girlfriend's Day</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffd1dc, #ff8fab);
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      margin: 20px 0;
+    }
+    h1 { color: #e0426f; font-size: 22px; }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 8px;
+      background: #e0426f;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #hasil { margin-top: 18px; color: #333; line-height: 1.5; }
+    .galeri {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 12px 0;
+    }
+    .galeri img {
+      width: 31%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #ffd1dc;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💖 Happy Girlfriend's Day 💖</h1>
+    <button onclick="buatUcapan()">Buka Ucapan</button>
+    <div id="hasil"></div>
+  </div>
+
+  <script>
+    // ===== DATA KAMU (ubah di sini saja) =====
+    const namaPasangan = "Savira Ibrahim";
+    const namaKamu = "Abyan Izudin";
+    const lamaHari = 11;
+    const foto = ["foto.jpeg.jpg", "foto2.jpeg.jpg", "foto3.jpeg.jpg"];
+    // =========================================
+
+    const pujian = [
+      "kamu selalu bikin hariku lebih berwarna",
+      "senyummu adalah hal favoritku",
+      "terima kasih sudah selalu ada buatku",
+      "kamu alasan aku jadi lebih baik tiap hari",
+      "bersamamu, hal sederhana terasa istimewa"
+    ];
+
+    function buatUcapan() {
+      const pujianAcak = pujian[Math.floor(Math.random() * pujian.length)];
+
+      let komentar;
+      if (lamaHari >= 365) {
+        komentar = "Lebih dari setahun! Semoga kita terus bersama ya sayangggkuu.";
+      } else if (lamaHari >= 180) {
+        komentar = "Setengah tahun lebih, semoga makin langgeng terusss yaa sayangggkuu.";
+      } else {
+        komentar = "Masih baru, tapi aku yakin ini awal yang indah.";
+      }
+
+      const galeri = foto
+        .map((f, i) => `<img src="${f}" alt="Foto ${i + 1}">`)
+        .join("");
+
+      document.getElementById("hasil").innerHTML =
+        `<p><b>Happy Girlfriend's Day, ${namaPasangan}!</b></p>
+         <div class="galeri">${galeri}</div>
+         <p>Sudah ${lamaHari} hari kita bersama, dan ${pujianAcak}.</p>
+         <p>${komentar}</p>
+         <p>Dengan cinta,<br>${namaKamu} ❤️</p>`;
+    }
+  </script>
+</body>
+</html>
